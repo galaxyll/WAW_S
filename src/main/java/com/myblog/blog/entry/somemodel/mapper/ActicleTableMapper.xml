@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myblog.blog.entry.somemodel.mapper.ActicleTableMapper">
+  <resultMap id="BaseResultMap" type="mbttst.mbytes.model.ActicleTable">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="acticle_id" jdbcType="INTEGER" property="acticleId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="write" jdbcType="VARCHAR" property="write" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="likes" jdbcType="INTEGER" property="likes" />
+    <result column="comments" jdbcType="INTEGER" property="comments" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mbttst.mbytes.model.ActicleTable">
+    <result column="data" jdbcType="LONGVARBINARY" property="data" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, acticle_id, title, write, time, likes, comments
+  </sql>
+  <sql id="Blob_Column_List">
+    data
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from acticle_table
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from acticle_table
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mbttst.mbytes.model.ActicleTable">
+    insert into acticle_table (tid, acticle_id, title, 
+      write, time, likes, 
+      comments, data)
+    values (#{tid,jdbcType=INTEGER}, #{acticleId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{write,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{likes,jdbcType=INTEGER}, 
+      #{comments,jdbcType=INTEGER}, #{data,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="mbttst.mbytes.model.ActicleTable">
+    insert into acticle_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="acticleId != null">
+        acticle_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="write != null">
+        write,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="likes != null">
+        likes,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+      <if test="data != null">
+        data,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="acticleId != null">
+        #{acticleId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="write != null">
+        #{write,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="likes != null">
+        #{likes,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=INTEGER},
+      </if>
+      <if test="data != null">
+        #{data,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mbttst.mbytes.model.ActicleTable">
+    update acticle_table
+    <set>
+      <if test="acticleId != null">
+        acticle_id = #{acticleId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="write != null">
+        write = #{write,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="likes != null">
+        likes = #{likes,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=INTEGER},
+      </if>
+      <if test="data != null">
+        data = #{data,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mbttst.mbytes.model.ActicleTable">
+    update acticle_table
+    set acticle_id = #{acticleId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      write = #{write,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      likes = #{likes,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=INTEGER},
+      data = #{data,jdbcType=LONGVARBINARY}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mbttst.mbytes.model.ActicleTable">
+    update acticle_table
+    set acticle_id = #{acticleId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      write = #{write,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      likes = #{likes,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>

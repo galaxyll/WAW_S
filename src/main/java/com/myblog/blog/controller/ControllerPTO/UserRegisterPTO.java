@@ -8,6 +8,16 @@ public class UserRegisterPTO implements Serializable {
     private String password;
     private String code;
 
+    @Override
+    public String toString() {
+        return "UserRegisterPTO{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", code='" + code + '\'' +
+                '}';
+    }
+
     public String getCode() {
         return code;
     }

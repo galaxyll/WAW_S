@@ -61,13 +61,16 @@ public class UserController extends BaseController{
 */
     @RequestMapping("/login")
     public CommonReturnType login(@RequestBody UserRegisterPTO userRegisterPTO,HttpServletRequest request) throws BusinessException {
+        System.out.println(userRegisterPTO.getUsername());
         User user=userService.GetUserByName(userRegisterPTO.getUsername());
-        System.out.println(userRegisterPTO.getCode());
-        System.out.println(request.getSession().getAttribute("verifyCode"));
-        System.out.println(request.getSession().getId());
-        if(!(userRegisterPTO.getCode()+"blog").toUpperCase().equals((request.getSession().getAttribute("verifyCode")).toString().toUpperCase()))
-            return CommonReturnType.create(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"验证码错误");
-
+        System.out.println(userRegisterPTO);
+//        System.out.println(request.getSession().getAttribute("verifyCode"));
+//        System.out.println(request.getSession().getId());
+//        if(!(userRegisterPTO.getCode()+"blog").toUpperCase().equals((request.getSession().getAttribute("verifyCode")).toString().toUpperCase()))
+//            return CommonReturnType.create(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"验证码错误");
+        if(user==null){
+            throw new BusinessException(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"未注册");
+        }
 
         if(user.getPassword().equals(userRegisterPTO.getPassword()))
             return CommonReturnType.create(null);
