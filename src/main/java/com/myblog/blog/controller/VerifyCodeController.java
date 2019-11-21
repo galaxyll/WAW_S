@@ -1,12 +1,11 @@
 package com.myblog.blog.controller;
-import com.myblog.blog.controller.ControllerVo.VerifyCodeVo;
+import com.myblog.blog.controller.vo.VerifyCodeVO;
 import com.myblog.blog.response.CommonReturnType;
 import com.myblog.blog.validate.createVerifyCode;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
@@ -41,7 +40,7 @@ public class VerifyCodeController extends BaseController {
         //fos.write(bytes);
         //fos.flush();
         //fos.close();
-        VerifyCodeVo verifyCodeVo = new VerifyCodeVo(code.getText(),bytes,request.getSession().getId());
+        VerifyCodeVO verifyCodeVo = new VerifyCodeVO(code.getText(),bytes,request.getSession().getId());
         request.getSession().setAttribute("verifyCode",code.getText()+"blog");
         System.out.println("vCode"+request.getSession().getAttribute("verifyCode"));
         System.out.println(request.getSession().getId());

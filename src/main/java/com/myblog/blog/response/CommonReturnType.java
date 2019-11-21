@@ -1,19 +1,12 @@
 package com.myblog.blog.response;/**
- * ClassName:CommonReturnType
- * Package:com.sdp.kill.response
- * Description:Everything Is
- * Possible!
- *
- * @Date:2019/3/24 15:54
- * @Author:"15029155474@163.com"
- */
+
 
 /**
  ClassName:CommonReturnType
+ * @author 大天狗
+ * 返回个前端的数据，携带一个前端可解析与辨识的标记
  */
 
-
-//返回个前端的数据，携带一个前端可解析与辨识的标记
 public class CommonReturnType {
 
 

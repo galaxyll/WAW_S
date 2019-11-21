@@ -5,9 +5,23 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserServiceDao {
-    void insert_user(User user);
+    /**
+     * 插入用户对象到表中
+     * @param user 用户对象
+     */
+    void insertUser(User user);
 
-    User select_from_name(String username);
+    /**
+     * 通过用户名返回用户对象
+     * @param username 用户名
+     * @return User
+     */
+    User selectFromName(String username);
 
-    User select_from_email(String email);
+    /**
+     * 通过邮箱返回用户对象
+     * @param email 用户邮箱
+     * @return User
+     */
+    User selectFromEmail(String email);
 }

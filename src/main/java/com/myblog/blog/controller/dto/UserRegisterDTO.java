@@ -1,8 +1,11 @@
-package com.myblog.blog.controller.ControllerPTO;
+package com.myblog.blog.controller.dto;
 
 import java.io.Serializable;
 
-public class UserRegisterPTO implements Serializable {
+/**
+ * @author 大天狗
+ */
+public class UserRegisterDTO implements Serializable {
     private String username;
     private String email;
     private String password;
@@ -10,7 +13,7 @@ public class UserRegisterPTO implements Serializable {
 
     @Override
     public String toString() {
-        return "UserRegisterPTO{" +
+        return "UserRegisterDTO{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
@@ -26,22 +29,22 @@ public class UserRegisterPTO implements Serializable {
         this.code = code;
     }
 
-    public UserRegisterPTO(String username, String password) {
+    public UserRegisterDTO(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public UserRegisterPTO(String username, String email, String password, String code) {
+    public UserRegisterDTO(String username, String email, String password, String code) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.code = code;
     }
 
-    public UserRegisterPTO() {
+    public UserRegisterDTO() {
     }
 
-    public UserRegisterPTO(String username, String email, String password) {
+    public UserRegisterDTO(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;

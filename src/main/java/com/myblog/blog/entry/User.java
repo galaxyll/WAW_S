@@ -5,12 +5,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * @author 大天狗
+ */
 public class User {
-    private Integer uid;//用户id 主键自增
+    /*
+     * 用户id 主键自增
+     */
+    private Integer uid;
 
     @NotEmpty(message = "用户名不能为空")
     @Size(min = 6 ,max = 20 ,message = "用户名长度不能少于6或长于20")
-    private String username;//用户名
+    /*
+     * 用户名
+     */
+    private String username;
 
     @NotEmpty(message = "邮箱不能为空")
     @Pattern(regexp = "^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+" +

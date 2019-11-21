@@ -4,15 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.dao.UserServiceDao">
 
-    <select id="select_from_name" resultType="com.myblog.blog.entry.User">
+    <select id="selectFromName" resultType="com.myblog.blog.entry.User">
         select * from blog_user where `username`=#{username}
     </select>
 
-    <select id="select_from_email" resultType="com.myblog.blog.entry.User">
+    <select id="selectFromEmail" resultType="com.myblog.blog.entry.User">
         select * from blog_user where `emil`=#{emil}
     </select>
 
-    <insert id="insert_user">
+    <insert id="insertUser">
         insert into blog_user(`username`,`emil`,`password`)
         values(#{username},#{emil},#{password})
     </insert>

@@ -1,16 +1,12 @@
 package com.myblog.blog.error;
 
-/**
- * ClassName:EmBusinessError
- * Package:com.sdp.kill.error
- * Description:Everything Is
- * Possible!
- *
- * @Date:2019/3/24 16:38
- * @Author:"15029155474@163.com"
- */
 
-//所有对应异常的枚举类型
+
+/**
+ * 所有对应异常的枚举类型
+ * @author "15029155474@163.com"
+ * @date 2019/3/24 16:38
+ */
 public enum EmBusinessError implements CommonError {
 
     //通用的错误类型，用户参数传递错误（注意这里的参数可以时任意一个参数而不是指定的）
@@ -24,18 +20,18 @@ public enum EmBusinessError implements CommonError {
 
 
     //枚举类型包含的成员变量
-    private String ErrorMsg;
+    private String errorMsg;
     //错误信息的状态码
     private int status;
 
     EmBusinessError(String errorMsg, int status) {
-        this.ErrorMsg = errorMsg;
+        this.errorMsg = errorMsg;
         this.status = status;
     }
 
     @Override
     public String getErrorMsg() {
-        return this.ErrorMsg;
+        return this.errorMsg;
     }
 
     @Override
@@ -45,7 +41,7 @@ public enum EmBusinessError implements CommonError {
 
     @Override
     public CommonError setErrorMsg(String msg) {
-       this.ErrorMsg = msg;
+       this.errorMsg = msg;
        return this;
     }
 }

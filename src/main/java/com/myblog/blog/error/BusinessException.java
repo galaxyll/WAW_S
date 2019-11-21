@@ -1,4 +1,5 @@
-package com.myblog.blog.error;/**
+package com.myblog.blog.error;
+/*
  * ClassName:BusinessException
  * Package:com.sdp.kill.error
  * Description:Everything Is
@@ -10,11 +11,15 @@ package com.myblog.blog.error;/**
 
 /**
  ClassName:BusinessException
+ * @author 大天狗
+ * 异常类
  */
-//异常类
+
 public class BusinessException extends Exception implements CommonError{
 
-    //强关联一个枚举类型的异常类
+    /**
+     * 强关联一个枚举类型的异常类
+     */
     private EmBusinessError emBusinessError;
 
     public BusinessException(EmBusinessError emBusinessError){

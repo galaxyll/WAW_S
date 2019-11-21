@@ -1,7 +1,7 @@
 package com.myblog.blog.controller;
 
 
-import com.myblog.blog.controller.ControllerPTO.UserRegisterPTO;
+import com.myblog.blog.controller.dto.UserRegisterDTO;
 import com.myblog.blog.entry.User;
 import com.myblog.blog.error.BusinessException;
 import com.myblog.blog.error.EmBusinessError;
@@ -24,7 +24,7 @@ public class UserController extends BaseController{
     UserService userService;
 
     @RequestMapping("/register")
-    public CommonReturnType register(@RequestBody UserRegisterPTO userRegisterPTO
+    public CommonReturnType register(@RequestBody UserRegisterDTO userRegisterPTO
            ) throws BusinessException {
         if(userService.GetUserByName(userRegisterPTO.getUsername())!=null){
             System.out.println(1);
@@ -60,7 +60,7 @@ public class UserController extends BaseController{
     }
 */
     @RequestMapping("/login")
-    public CommonReturnType login(@RequestBody UserRegisterPTO userRegisterPTO,HttpServletRequest request) throws BusinessException {
+    public CommonReturnType login(@RequestBody UserRegisterDTO userRegisterPTO, HttpServletRequest request) throws BusinessException {
         System.out.println(userRegisterPTO.getUsername());
         User user=userService.GetUserByName(userRegisterPTO.getUsername());
         System.out.println(userRegisterPTO);

@@ -1,6 +1,9 @@
-package com.myblog.blog.controller.ControllerVo;
+package com.myblog.blog.controller.vo;
 
-public class VerifyCodeVo {
+/**
+ * @author 大天狗
+ */
+public class VerifyCodeVO {
 
     private String text;
 
@@ -16,18 +19,18 @@ public class VerifyCodeVo {
         this.JSESSIONID = JSESSIONID;
     }
 
-    public VerifyCodeVo(String text, byte[] image, String JSESSIONID) {
+    public VerifyCodeVO(String text, byte[] image, String JSESSIONID) {
         this.text = text;
         this.image = image;
         this.JSESSIONID = JSESSIONID;
     }
 
-    public VerifyCodeVo(String text, byte[] image) {
+    public VerifyCodeVO(String text, byte[] image) {
         this.text = text;
         this.image = image;
     }
 
-    public VerifyCodeVo() {
+    public VerifyCodeVO() {
     }
 
     public String getText() {

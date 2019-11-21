@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 
 public interface UserService {
-    void UserRegister(User user) throws BusinessException;
+    void userRegister(User user) throws BusinessException;
 
-    User GetUserByName(String username);
+    User getUserByName(String username);
 
-    User GetUserByEmil(String email);
+    User getUserByEmil(String email);
 }

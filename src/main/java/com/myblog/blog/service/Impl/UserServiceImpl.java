@@ -19,21 +19,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private validatorImpl validator;
     @Override
-    public void UserRegister(User user) throws BusinessException {
+    public void userRegister(User user) throws BusinessException {
         validatorResult result = validator.validate(user);
         if(result.isHasError()){
             throw new BusinessException(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,result.getErrorMsg());
         }
-        userServiceDao.insert_user(user);
+        userServiceDao.insertUser(user);
     }
 
     @Override
-    public User GetUserByName(String username) {
-        return userServiceDao.select_from_name(username);
+    public User getUserByName(String username) {
+        return userServiceDao.selectFromName(username);
     }
 
     @Override
-    public User GetUserByEmil(String email) {
-        return userServiceDao.select_from_email(email);
+    public User getUserByEmil(String email) {
+        return userServiceDao.selectFromEmail(email);
     }
 }
