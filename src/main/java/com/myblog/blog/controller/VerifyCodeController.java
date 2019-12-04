@@ -13,6 +13,9 @@ import java.io.ByteArrayOutputStream;
 
 
 
+/**
+ * @author hasee
+ */
 @RestController
 @RequestMapping("/blog/register")
 @CrossOrigin(allowCredentials="true",allowedHeaders="*")

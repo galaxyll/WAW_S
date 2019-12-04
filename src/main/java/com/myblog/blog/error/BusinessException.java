@@ -1,13 +1,4 @@
 package com.myblog.blog.error;
-/*
- * ClassName:BusinessException
- * Package:com.sdp.kill.error
- * Description:Everything Is
- * Possible!
- *
- * @Date:2019/3/24 17:01
- * @Author:"15029155474@163.com"
- */
 
 /**
  ClassName:BusinessException

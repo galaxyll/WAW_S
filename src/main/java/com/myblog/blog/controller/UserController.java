@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author hasee
+ */
 @RestController
 @RequestMapping("/blog/register")
 @CrossOrigin(allowCredentials = "true" ,allowedHeaders = "*")
@@ -26,11 +29,11 @@ public class UserController extends BaseController{
     @RequestMapping("/register")
     public CommonReturnType register(@RequestBody UserRegisterDTO userRegisterPTO
            ) throws BusinessException {
-        if(userService.GetUserByName(userRegisterPTO.getUsername())!=null){
+        if(userService.getUserByName(userRegisterPTO.getUsername())!=null){
             System.out.println(1);
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,"用户已存在");
         }
-        if(userService.GetUserByEmil(userRegisterPTO.getEmail())!=null){
+        if(userService.getUserByEmil(userRegisterPTO.getEmail())!=null){
             System.out.println(2);
             throw new BusinessException(EmBusinessError.PARAMETER_IMAGE_ERROR,"邮箱已存在");
         }
@@ -39,11 +42,11 @@ public class UserController extends BaseController{
         BeanUtils.copyProperties(userRegisterPTO,user);
         user.setEmil(userRegisterPTO.getEmail());
         System.out.println(3);
-        userService.UserRegister(user);
+        userService.userRegister(user);
         System.out.println(4);
         return CommonReturnType.create(null);
     }
-/*   @RequestMapping("/register1")
+/**   @RequestMapping("/register1")
     public CommonReturnType register1(String username,String emil,String password
             , HttpServletRequest request) throws BusinessException {
         if(userService.GetUserByName(username)!=null){
@@ -62,19 +65,22 @@ public class UserController extends BaseController{
     @RequestMapping("/login")
     public CommonReturnType login(@RequestBody UserRegisterDTO userRegisterPTO, HttpServletRequest request) throws BusinessException {
         System.out.println(userRegisterPTO.getUsername());
-        User user=userService.GetUserByName(userRegisterPTO.getUsername());
+        User user=userService.getUserByName(userRegisterPTO.getUsername());
         System.out.println(userRegisterPTO);
-//        System.out.println(request.getSession().getAttribute("verifyCode"));
-//        System.out.println(request.getSession().getId());
-//        if(!(userRegisterPTO.getCode()+"blog").toUpperCase().equals((request.getSession().getAttribute("verifyCode")).toString().toUpperCase()))
-//            return CommonReturnType.create(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"验证码错误");
+
+/**System.out.println(request.getSession().getAttribute("verifyCode"));
+        System.out.println(request.getSession().getId());
+        if(!(userRegisterPTO.getCode()+"blog").toUpperCase().equals((request.getSession().getAttribute("verifyCode")).toString().toUpperCase()))
+            return CommonReturnType.create(EmBusinessError.VERIFYCODE_MISTAKE_ERROR,"验证码错误");
+       */
+
         if(user==null){
             throw new BusinessException(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"未注册");
         }
 
-        if(user.getPassword().equals(userRegisterPTO.getPassword()))
+        if(user.getPassword().equals(userRegisterPTO.getPassword())) {
             return CommonReturnType.create(null);
-
+        }
         throw new BusinessException(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"密码错误");
     }
 }
