@@ -28,7 +28,7 @@ public class UserController extends BaseController{
 
     @RequestMapping("/register")
     public CommonReturnType register(@RequestBody UserRegisterDTO userRegisterPTO
-           ) throws BusinessException {
+    ) throws BusinessException {
         if(userService.getUserByName(userRegisterPTO.getUsername())!=null){
             System.out.println(1);
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,"用户已存在");
@@ -63,7 +63,8 @@ public class UserController extends BaseController{
     }
 */
     @RequestMapping("/login")
-    public CommonReturnType login(@RequestBody UserRegisterDTO userRegisterPTO, HttpServletRequest request) throws BusinessException {
+    public CommonReturnType login(@RequestBody UserRegisterDTO userRegisterPTO,
+                                  HttpServletRequest request) throws BusinessException {
         System.out.println(userRegisterPTO.getUsername());
         User user=userService.getUserByName(userRegisterPTO.getUsername());
         System.out.println(userRegisterPTO);
@@ -82,5 +83,9 @@ public class UserController extends BaseController{
             return CommonReturnType.create(null);
         }
         throw new BusinessException(EmBusinessError.ILLEGAL_IMAGETYPE_ERROR,"密码错误");
+    }
+    @RequestMapping("/test")
+    public CommonReturnType test(){
+        return CommonReturnType.create(null);
     }
 }
