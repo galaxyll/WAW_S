@@ -3,6 +3,9 @@ package com.myblog.blog.dao;
 import com.myblog.blog.entry.User;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * @author 大天狗
+ */
 @Mapper
 public interface UserServiceDao {
     /**
@@ -24,4 +27,10 @@ public interface UserServiceDao {
      * @return User
      */
     User selectFromEmail(String email);
+
+    /**
+     * 通过邮箱返回用户对象
+     * @param user 用户
+     */
+    void updateUser(User user);
 }

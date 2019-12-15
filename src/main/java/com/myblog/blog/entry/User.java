@@ -30,6 +30,52 @@ public class User {
     @Size(min = 6 ,max = 20 ,message = "密码长度不能少于6或长于20")
     private String password;
 
+    private String sex;
+    private String school;
+    private String name;
+    private String college;
+    private String signature;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
     public User() {
     }
 
@@ -78,5 +124,19 @@ public class User {
         this.username = username;
         this.emil = emil;
         this.password = password;
+    }
+
+//    public User(User user,String s);
+
+    public User(User user,String sex, String school, String name, String college, String signature) {
+        this.uid=user.uid;
+        this.username=user.username;
+        this.emil = user.emil;
+        this.password = user.password;
+        this.sex = sex;
+        this.school = school;
+        this.name = name;
+        this.college = college;
+        this.signature = signature;
     }
 }

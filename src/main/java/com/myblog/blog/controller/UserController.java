@@ -30,20 +30,15 @@ public class UserController extends BaseController{
     public CommonReturnType register(@RequestBody UserRegisterDTO userRegisterPTO
     ) throws BusinessException {
         if(userService.getUserByName(userRegisterPTO.getUsername())!=null){
-            System.out.println(1);
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,"用户已存在");
         }
         if(userService.getUserByEmil(userRegisterPTO.getEmail())!=null){
-            System.out.println(2);
             throw new BusinessException(EmBusinessError.PARAMETER_IMAGE_ERROR,"邮箱已存在");
         }
-        System.out.println(userRegisterPTO.getUsername());
         User user=new User();
         BeanUtils.copyProperties(userRegisterPTO,user);
         user.setEmil(userRegisterPTO.getEmail());
-        System.out.println(3);
         userService.userRegister(user);
-        System.out.println(4);
         return CommonReturnType.create(null);
     }
 /**   @RequestMapping("/register1")

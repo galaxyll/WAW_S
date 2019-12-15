@@ -46,7 +46,7 @@ public class UserRegisterDTO implements Serializable {
 
     public UserRegisterDTO(String username, String email, String password) {
         this.username = username;
-        this.email = null; //TODO email;
+        this.email = null;
         this.password = password;
     }
 

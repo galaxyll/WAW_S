@@ -16,6 +16,14 @@
         insert into blog_user(`username`,`emil`,`password`)
         values(#{username},#{emil},#{password})
     </insert>
-
-
+    <update id="updateUser">
+        update blog_user set username=#{username},emil=#{emil},image=#{image},sex=#{sex},
+        name=#{name},password=#{password},school=#{school},college=#{college},signature=#{signature}
+    </update>
+    <!--
+    <insert id="insertUser">
+        insert into blog_user(`username`,`emil`,`image`,`sex`,`school`,`college`,`name`,`signature`)
+        values(#{username},#{emil},#{password},#{image},#{sex},#{school},#{college},#{name},#{signature})
+    </insert>
+    -->
 </mapper>
